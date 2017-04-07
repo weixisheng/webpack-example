@@ -1,0 +1,35 @@
+@import './common';
+@import './mixin';
+@fz:16px;
+@c:#0428ca;
+@link-color:#333;
+body{
+  color: @c;
+  font-size: @fz;
+}
+div{
+  .wh(100%,100%);
+}
+a{
+  color:lighten(@link-color, 50%);;
+  &:hover{
+    color: darken(@link-color, 50%);
+    cursor: pointer;
+  }
+}
+@media screen {
+  @selector:a
+  .screenClass:extend(@selector){}
+    @media (min-width: 1023px){
+      @selector{
+        color:pink;
+      }
+    }
+}
+.item{
+  width: 200px;
+  background: #eee;
+  position: absolute;
+  transition: all 0.5s;
+}
+.generate-columns(12);

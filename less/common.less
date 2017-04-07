@@ -1,0 +1,32 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.clearfix{
+  display: block;
+  zoom:1;
+  &:after{
+    content: '';
+    display: block;
+    font-size: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+.ellipse{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.cb{
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
+.generate-columns(@n,@i:1) when (@i<=@n){
+  .column-@{i}{
+    width: @i * 100% /@n;
+  }
+  .generate-columns(@n,(@i+1));
+}
